@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<title>
+		CHINAMIRAM
+	</title><link rel="icon" type="image/gif/png" href="http://localhost/House/House/15.jpg">
+<form action = "http://localhost/House/chinamiram.php" method="GET">
+<body>
+	<table align="center" border="1px" style="width:1000px; line-height:40px;">
+		<tr>
+			<th colspan="7"><h2>HOUSE DETAILS IN CHINAMIRAM</h2></th>
+		</tr>
+		<t>
+			<th>IMAGE</th>
+			<th>TYPE OF HOUSE</th>
+			<th>RENT PER MONTH</th>
+			<th>NAME OF PROVIDER</th>
+			<th>DNO</th>
+			<th>CONTACT</th>
+			<th>ADDRESS</th>
+		</t>
+		<?php
+ $c = mysqli_connect("localhost","root","","house");
+$query="select * from chinamiram";
+$result=mysql_query($c,$query);
+?>
+
+
+		<?php
+			while($chinamiram=mysql_fetch_array($result))
+			{
+		?>
+				<tr>
+					<td><?php echo $chinamiram['IMAGE']; ?></td>
+					<td><?php echo $chinamiram['TYPE OF HOUSE']; ?></td>
+					<td><?php echo $chinamiram['RENT PER MONTH']; ?></td>
+					<td><?php echo $chinamiram['NAME OF PROVIDER']; ?></td>
+					<td><?php echo $chinamiram['DNO']; ?></td>
+					<td><?php echo $chinamiram['CONTACT']; ?></td>
+					<td><?php echo $chinamiram['ADDRESS']; ?></td>
+				</tr>
+		<?php
+			}
+		?>
+		
+	</table>
+</body>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<title>
+		KOVVADA
+	</title><link rel="icon" type="image/gif/png" href="http://localhost/House/House/15.jpg">
+<form action = "http://localhost/House/kovvada.php" method="GET">
+<body>
+	<table align="center" border="1px" style="width:1000px; line-height:40px;">
+		<tr>
+			<th colspan="7"><h2>HOUSE DETAILS IN KOVVADA</h2></th>
+		</tr>
+		<t>
+			<th>IMAGE</th>
+			<th>TYPE OF HOUSE</th>
+			<th>RENT PER MONTH</th>
+			<th>NAME OF PROVIDER</th>
+			<th>DNO</th>
+			<th>CONTACT</th>
+			<th>ADDRESS</th>
+		</t>
+		<?php
+include_once('http://localhost/House/connection.php');
+$query="select * from kovvada";
+$result=mysql_query($query);
+?>
+
+
+		<?php
+			while($rows=mysql_fetch_assoc($result))
+			{
+		?>
+				<tr>
+					<td><?php echo $rows['IMAGE']; ?></td>
+					<td><?php echo $rows['TYPE OF HOUSE']; ?></td>
+					<td><?php echo $rows['RENT PER MONTH']; ?></td>
+					<td><?php echo $rows['NAME OF PROVIDER']; ?></td>
+					<td><?php echo $rows['DNO']; ?></td>
+					<td><?php echo $rows['CONTACT']; ?></td>
+					<td><?php echo $rows['ADDRESS']; ?></td>
+				</tr>
+		<?php
+			}
+		?>
+		
+	</table>
+</body>
+</html>
